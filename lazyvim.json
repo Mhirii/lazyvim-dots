@@ -10,7 +10,9 @@
     "lazyvim.plugins.extras.lsp.none-ls",
     "lazyvim.plugins.extras.util.dot",
     "lazyvim.plugins.extras.util.project",
-    "lazyvim.plugins.extras.vscode"
+    "lazyvim.plugins.extras.vscode",
+    "plugins.extras.cheatsheet",
+    "plugins.extras.tsc"
   ],
   "news": {
     "NEWS.md": "2123"
