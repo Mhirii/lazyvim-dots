@@ -8,12 +8,12 @@ if vim.g.neovide then
   vim.g.neovide_profiler = false
   vim.g.neovide_scale_factor = 1.0
   vim.g.neovide_theme = "auto"
-  vim.g.neovide_transparency = 0.3
+  vim.g.neovide_transparency = 0.75
   vim.g.neovide_cursor_animate_in_insert_mode = true
   vim.g.neovide_scroll_animation_length = 0.5
   vim.g.neovide_cursor_animation_length = 0.15
   vim.g.neovide_cursor_trail_size = 0.7
   vim.g.neovide_cursor_vfx_mode = "pixiedust"
-  vim.g.neovide_cursor_vfx_particle_lifetime = 2
-  vim.g.neovide_cursor_vfx_particle_density = 14
+  vim.g.neovide_cursor_vfx_particle_lifetime = 3
+  vim.g.neovide_cursor_vfx_particle_density = 20
 end
