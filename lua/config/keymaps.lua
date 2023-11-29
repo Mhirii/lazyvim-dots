@@ -177,3 +177,40 @@ map("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
 map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+
+
+if vim.g.vscode then
+  map("n", "<Space>", '<CMD>call VSCodeNotify("whichkey.show")<CR>')
+  map("x", "<Space>", '<CMD>call VSCodeNotify("whichkey.show")<CR>')
+
+  -- navigation
+  map("n", "<C-j>", '<CMD>call VSCodeNotify("workbench.action.navigateDown")<CR>')
+  map("x", "<C-j>", '<CMD>call VSCodeNotify("workbench.action.navigateDown")<CR>')
+  map("n", "<C-k>", '<CMD>call VSCodeNotify("workbench.action.navigateUp")<CR>')
+  map("x", "<C-k>", '<CMD>call VSCodeNotify("workbench.action.navigateUp")<CR>')
+  map("n", "<C-h>", '<CMD>call VSCodeNotify("workbench.action.navigateLeft")<CR>')
+  map("x", "<C-h>", '<CMD>call VSCodeNotify("workbench.action.navigateLeft")<CR>')
+  map("n", "<C-l>", '<CMD>call VSCodeNotify("workbench.action.navigateRight")<CR>')
+  map("x", "<C-l>", '<CMD>call VSCodeNotify("workbench.action.navigateRight")<CR>')
+
+  -- editor
+  map("n", "<S-h>", '<CMD>call VSCodeNotify("workbench.action.previousEditorInGroup")<CR>')
+  map("n", "<S-l>", '<CMD>call VSCodeNotify("workbench.action.nextEditorInGroup")<CR>')
+
+  -- Hover
+  map("n", "K", '<CMD>call VSCodeNotify("editor.action.showHover")<CR>')
+
+  -- VSCode definitions/references
+  map("n", "gd", '<CMD>call VSCodeNotify("editor.action.revealDefinition")<CR>')
+  map("n", "gr", '<CMD>call VSCodeNotify("editor.action.goToReferences")<CR>')
+
+  map("n", "]d", '<CMD>call VSCodeNotify("editor.action.marker.next")<CR>')
+  map("n", "[d", '<CMD>call VSCodeNotify("editor.action.marker.prev")<CR>')
+
+  map("n", "]t", '<CMD>call VSCodeNotify("workbench.action.nextEditor")<CR>')
+  map("n", "[t", '<CMD>call VSCodeNotify("workbench.action.previousEditor")<CR>')
+
+  map("n", "zi", '<CMD>call VSCodeNotify("editor.toggleFold")<CR>')
+
+  -- map("n", "<C-g>", "<CMD> HopWord <CR>")
+end
