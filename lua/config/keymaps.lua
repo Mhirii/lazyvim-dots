@@ -132,6 +132,7 @@ if vim.lsp.inlay_hint then
   map("n", "<leader>uh", function() vim.lsp.inlay_hint(0, nil) end, { desc = "Toggle Inlay Hints" })
 end
 map("n", "<leader>uT", function() if vim.b.ts_highlight then vim.treesitter.stop() else vim.treesitter.start() end end, { desc = "Toggle Treesitter Highlight" })
+map("n", "<leader>uj", function() require("flash").toggle() end, {desc = "Toggle Flash Search"})
 
 -- lazygit
 map("n", "<leader>gg", function() Util.terminal({ "lazygit" }, { cwd = Util.root(), esc_esc = false, ctrl_hjkl = false }) end, { desc = "Lazygit (root dir)" })
@@ -177,6 +178,21 @@ map("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
 map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+
+-- extra
+    -- { "K", ":Lspsaga hover_doc ++quiet<cr>", desc = "Hover" },
+    map("n", "gh", ":Lspsaga finder<cr>", {desc = "LSP finder" })
+    -- { "gd", ":Lspsaga goto_definition<cr>", desc = "Goto definition" },
+    map("n", "gD", ":Lspsaga goto_type_definition<cr>", {desc = "Goto type definition" })
+    map("n", "gp", ":Lspsaga peek_definition<cr>", {desc = "Peek definition" })
+    map("n", "gP", ":Lspsaga peek_type_definition<cr>", {desc = "Peek type definition" })
+    -- { "<c-j>", ":Lspsaga diagnostic_jump_next<cr>", desc = "Next Diagnostic" },
+    -- { "J", ":Lspsaga diagnostic_jump_prev<cr>", desc = "Prev Diagnostic" },
+    map("n", "<leader>cd", ":Lspsaga show_line_diagnostics<cr>", {desc = "Line diagnostics" })
+    map("n", "<leader>cs", ":Lspsaga outline<cr>", {desc = "Code outline" })
+    map("n", "<leader>ci", ":Lspsaga incoming_calls<cr>", {desc = "Incoming calls" })
+    map("n", "<leader>co", ":Lspsaga outgoing_calls<cr>", {desc = "Outgoing calls" })
+    map({ "n", "x" }, "<leader>ca", ":Lspsaga code_action<cr>", {desc = "Code action"})
 
 
 if vim.g.vscode then
