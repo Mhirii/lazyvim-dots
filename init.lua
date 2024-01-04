@@ -5,12 +5,12 @@ vim.cmd("colorscheme tokyonight")
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
   vim.g.neovide_confirm_quit = true
-  vim.o.guifont = "JetbrainsMono Nerd Font:h16"
-  vim.opt.linespace = 4
+  vim.o.guifont = "JetbrainsMono Nerd Font:h14"
+  vim.opt.linespace = 3
   vim.g.neovide_profiler = false
   vim.g.neovide_scale_factor = 1.0
   vim.g.neovide_theme = "auto"
-  vim.g.neovide_transparency = 0.75
+  vim.g.neovide_transparency = 0.9
   vim.g.neovide_cursor_animate_in_insert_mode = true
   vim.g.neovide_scroll_animation_length = 0.5
   vim.g.neovide_cursor_animation_length = 0.15
