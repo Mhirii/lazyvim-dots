@@ -40,4 +40,13 @@ return {
       })
     end,
   },
+  {
+    "decaycs/decay.nvim",
+    name = "decay",
+    config = function()
+      require("decay").setup({
+        style = "dark",
+      })
+    end,
+  },
 }

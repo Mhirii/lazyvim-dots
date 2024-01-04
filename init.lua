@@ -1,10 +1,12 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
+vim.cmd("colorscheme tokyonight")
 
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
   vim.g.neovide_confirm_quit = true
-  vim.o.guifont = " Monospace Neon:h11 ,JetbrainsMono Nerd Font:h11"
+  vim.o.guifont = "JetbrainsMono Nerd Font:h16"
+  vim.opt.linespace = 4
   vim.g.neovide_profiler = false
   vim.g.neovide_scale_factor = 1.0
   vim.g.neovide_theme = "auto"
