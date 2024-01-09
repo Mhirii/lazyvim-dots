@@ -40,21 +40,6 @@ return {
           expand_or_jump = "<cr>",
         },
       },
-      finder = {
-        keys = {
-          vsplit = "v",
-          split = "s",
-          quit = { "q", "<esc>" },
-          edit = { "<cr>" },
-          close_in_preview = "q",
-        },
-      },
-      definition = {
-        edit = "<cr>",
-        vsplit = "<C-v>",
-        split = "<C-s>",
-        tabe = "<C-t>",
-      },
       lightbulb = {
         enable = false,
         enable_in_insert = false,
@@ -74,6 +59,37 @@ return {
       --   extend_relatedInformation = true,
       -- },
     },
+    config = function()
+      -- for crates.nvim
+
+      -- error lens
+      vim.fn.sign_define({
+        {
+          name = "DiagnosticSignError",
+          text = "",
+          texthl = "DiagnosticSignError",
+          linehl = "ErrorLine",
+        },
+        {
+          name = "DiagnosticSignWarn",
+          text = "",
+          texthl = "DiagnosticSignWarn",
+          linehl = "WarningLine",
+        },
+        {
+          name = "DiagnosticSignInfo",
+          text = "",
+          texthl = "DiagnosticSignInfo",
+          linehl = "InfoLine",
+        },
+        {
+          name = "DiagnosticSignHint",
+          text = "",
+          texthl = "DiagnosticSignHint",
+          linehl = "HintLine",
+        },
+      })
+    end,
   },
 
   {

@@ -185,19 +185,20 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 --          ╰─────────────────────────────────────────────────────────╯
 
 -- lspsaga
-    -- { "K", ":Lspsaga hover_doc ++quiet<cr>", desc = "Hover" },
-    map("n", "gh", ":Lspsaga finder<cr>", {desc = "LSP finder" })
+    -- map( "K", ":Lspsaga hover_doc ++quiet<cr>",{ desc = "Hover" })
     -- { "gd", ":Lspsaga goto_definition<cr>", desc = "Goto definition" },
-    map("n", "gD", ":Lspsaga goto_type_definition<cr>", {desc = "Goto type definition" })
-    map("n", "gp", ":Lspsaga peek_definition<cr>", {desc = "Peek definition" })
-    map("n", "gP", ":Lspsaga peek_type_definition<cr>", {desc = "Peek type definition" })
-    -- { "<c-j>", ":Lspsaga diagnostic_jump_next<cr>", desc = "Next Diagnostic" },
-    -- { "J", ":Lspsaga diagnostic_jump_prev<cr>", desc = "Prev Diagnostic" },
-    map("n", "<leader>cd", ":Lspsaga show_line_diagnostics<cr>", {desc = "Line diagnostics" })
-    map("n", "<leader>cs", ":Lspsaga outline<cr>", {desc = "Code outline" })
-    map("n", "<leader>ci", ":Lspsaga incoming_calls<cr>", {desc = "Incoming calls" })
-    map("n", "<leader>co", ":Lspsaga outgoing_calls<cr>", {desc = "Outgoing calls" })
+    -- map("n", "gD", ":Lspsaga goto_type_definition<cr>", {desc = "Goto type definition" })
+    -- map("n", "gp", ":Lspsaga peek_definition<cr>", {desc = "Peek definition" })
+    -- map("n", "gP", ":Lspsaga peek_type_definition<cr>", {desc = "Peek type definition" })
+    -- map("n", "<leader>cd", ":Lspsaga show_line_diagnostics<cr>", {desc = "Line diagnostics" })
     map({ "n", "x" }, "<leader>ca", ":Lspsaga code_action<cr>", {desc = "Code action"})
+    map("n", "gd", "<cmd>Lspsaga goto_definition<cr>", { desc = "LspSaga Go to Definition" })
+    map("n", "<space>r", vim.lsp.buf.rename, { desc = "LspSaga Rename" })
+    map("n", "gr", function ()
+      local builtin = require("telescope.builtin")
+      builtin.lsp_references()
+    end,
+    { desc = "LspSaga References" })
 
 
 
