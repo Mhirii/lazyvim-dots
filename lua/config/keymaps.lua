@@ -199,38 +199,6 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
     map("n", "<leader>co", ":Lspsaga outgoing_calls<cr>", {desc = "Outgoing calls" })
     map({ "n", "x" }, "<leader>ca", ":Lspsaga code_action<cr>", {desc = "Code action"})
 
--- harpoon
-local harpoon = require("harpoon")
-harpoon:setup()
-map(
-  {"n","x"}, "<leader>ha",
-  function()
-      harpoon:list():append()
-    end,
-  {desc = "Harpoon Append"}
-)
-map(
-  {"n","x"}, "<leader>hm",
-  function()
-    harpoon.ui:toggle_quick_menu(harpoon:list())
-    end,
-  {desc = "Harpoon Quick Menu"}
-)
---TODO: add leader h[1,2,3,4...] 
-map(
-  {"n","x"}, "<leader>hp",
-  function()
-    harpoon:list():prev()
-    end,
-  {desc = "Harpoon Previous Mark"}
-)
-map(
-  {"n","x"}, "<leader>hn",
-  function()
-    harpoon:list():next()
-    end,
-  {desc = "Harpoon Next Mark"}
-)
 
 
 if vim.g.vscode then

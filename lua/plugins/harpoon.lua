@@ -1,33 +1,44 @@
 return {
   "ThePrimeagen/harpoon",
   branch = "harpoon2",
+  event = "BufRead",
   dependencies = { "nvim-lua/plenary.nvim" },
-  config = function()
-    local harpoon = require("harpoon")
-    harpoon:setup({})
 
-    -- basic telescope configuration
-    local conf = require("telescope.config").values
-    local function toggle_telescope(harpoon_files)
-      local file_paths = {}
-      for _, item in ipairs(harpoon_files.items) do
-        table.insert(file_paths, item.value)
-      end
-
-      require("telescope.pickers")
-        .new({}, {
-          prompt_title = "Harpoon",
-          finder = require("telescope.finders").new_table({
-            results = file_paths,
-          }),
-          previewer = conf.file_previewer({}),
-          sorter = conf.generic_sorter({}),
-        })
-        :find()
+  config = function(_, options)
+    local status_ok, harpoon = pcall(require, "harpoon")
+    if not status_ok then
+      return
     end
-
-    vim.keymap.set("n", "<M-m>", function()
-      toggle_telescope(harpoon:list())
-    end, { desc = "Open harpoon window" })
+    harpoon:setup(options)
   end,
+
+  keys = {
+    {
+      "<leader>fm",
+      "<cmd>Telescope harpoon marks<cr>",
+      desc = "Telescope Harpoon Marks",
+    },
+    {
+      "<leader>hl",
+      "<cmd>Telescope harpoon marks<cr>",
+      desc = "Telescope Harpoon Marks",
+    },
+    {
+      "<leader>hh",
+      function()
+        local harpoon = require("harpoon")
+        harpoon.ui:toggle_quick_menu(harpoon:list())
+      end,
+      desc = "Harpoon toggle menu",
+    },
+    {
+      "<leader>ha",
+      function()
+        local harpoon = require("harpoon")
+        harpoon:list():append()
+      end,
+      desc = "Harpoon Add File",
+    },
+  },
+  opts = {},
 }
