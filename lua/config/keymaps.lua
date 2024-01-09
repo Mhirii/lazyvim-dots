@@ -49,7 +49,7 @@ map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
 -- Clear search, diff update and redraw
--- taken from runtime/lua/_editor.lua
+-- taken from runtime/lua/_editor.luakey
 map(
   "n",
   "<leader>ur",
@@ -133,6 +133,7 @@ if vim.lsp.inlay_hint then
 end
 map("n", "<leader>uT", function() if vim.b.ts_highlight then vim.treesitter.stop() else vim.treesitter.start() end end, { desc = "Toggle Treesitter Highlight" })
 map("n", "<leader>uj", function() require("flash").toggle() end, {desc = "Toggle Flash Search"})
+map("n", "<leader>uz",  ":ColorizerToggle<cr>" , { desc = "Toggle Colorizer" })
 
 -- lazygit
 map("n", "<leader>gg", function() Util.terminal({ "lazygit" }, { cwd = Util.root(), esc_esc = false, ctrl_hjkl = false }) end, { desc = "Lazygit (root dir)" })
